@@ -73,7 +73,7 @@ class ezcCacheStorageMemcachePlain extends ezcCacheStorageMemcache
     {
         if ( is_resource( $data ) )
         {
-            throw new ezcCacheInvalidDataException( gettype( $data ), array( 'simple', 'array', 'object' ) );
+            throw new ezcCacheInvalidDataException( gettype( $data ), ['simple', 'array', 'object'] );
         }
         return new ezcCacheStorageMemoryDataStruct( $data, $this->properties['location'] );
     }

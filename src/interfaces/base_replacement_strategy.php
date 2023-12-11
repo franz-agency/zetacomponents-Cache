@@ -82,7 +82,7 @@ abstract class ezcCacheStackBaseReplacementStrategy implements ezcCacheStackRepl
         ezcCacheStackMetaData $metaData,
         $itemId,
         $itemData,
-        $itemAttributes = array()
+        $itemAttributes = []
     )
     {
         if ( !$metaData->hasItem( $conf->id, $itemId )
@@ -109,9 +109,7 @@ abstract class ezcCacheStackBaseReplacementStrategy implements ezcCacheStackRepl
      * If this does not free $freeNum items, least recently used items
      * (determined from {@link ezcCacheStackMetaData}) will be removed from the
      * storage using {@link ezcCacheStackableStorage::delete()}.
-     * 
-     * @param ezcCacheStackStorageConfiguration $conf 
-     * @param ezcCacheStackMetaData $metaData
+     *
      * @param int $freeNum
      */
     private static function freeData(
@@ -180,7 +178,7 @@ abstract class ezcCacheStackBaseReplacementStrategy implements ezcCacheStackRepl
         ezcCacheStackStorageConfiguration $conf,
         ezcCacheStackMetaData $metaData,
         $itemId,
-        $itemAttributes = array(),
+        $itemAttributes = [],
         $search = false
     )
     {
@@ -229,7 +227,7 @@ abstract class ezcCacheStackBaseReplacementStrategy implements ezcCacheStackRepl
         ezcCacheStackStorageConfiguration $conf,
         ezcCacheStackMetaData $metaData,
         $itemId,
-        $itemAttributes = array(),
+        $itemAttributes = [],
         $search = false
     )
     {

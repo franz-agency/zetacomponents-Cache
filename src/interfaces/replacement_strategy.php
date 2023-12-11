@@ -65,10 +65,7 @@ interface ezcCacheStackReplacementStrategy
      * After the necessary freeing process has been performed, the item is
      * stored in the storage and the $metaData is updated accordingly.
      *
-     * @param ezcCacheStackStorageConfiguration $conf
-     * @param ezcCacheStackMetaData $metaData
      * @param string $itemId
-     * @param mixed $itemData
      * @param array(string=>string) $itemAttributes
      * @throws ezcCacheInvalidMetaDataException
      *         if the given $metaData is not processable by this replacement
@@ -78,8 +75,8 @@ interface ezcCacheStackReplacementStrategy
         ezcCacheStackStorageConfiguration $conf,
         ezcCacheStackMetaData $metaData,
         $itemId,
-        $itemData,
-        $itemAttributes = array()
+        mixed $itemData,
+        $itemAttributes = []
     );
 
     /**
@@ -95,8 +92,6 @@ interface ezcCacheStackReplacementStrategy
      * The method must take care that the restore process is reflected in
      * $metaData according to the spcific replacement strategy implementation.
      *
-     * @param ezcCacheStackStorageConfiguration $conf
-     * @param ezcCacheStackMetaData $metaData
      * @param string $itemId
      * @param array(string=>string) $itemAttributes
      * @param bool $search
@@ -110,7 +105,7 @@ interface ezcCacheStackReplacementStrategy
         ezcCacheStackStorageConfiguration $conf,
         ezcCacheStackMetaData $metaData,
         $itemId,
-        $itemAttributes = array(),
+        $itemAttributes = [],
         $search = false
     );
 
@@ -124,8 +119,6 @@ interface ezcCacheStackReplacementStrategy
      * method returns a list of all item IDs that have been deleted by the
      * call. The method reflects these changes in $metaData.
      *
-     * @param ezcCacheStackStorageConfiguration $conf
-     * @param ezcCacheStackMetaData $metaData
      * @param string $itemId
      * @param array(string=>string) $itemAttributes
      * @param bool $search
@@ -139,7 +132,7 @@ interface ezcCacheStackReplacementStrategy
         ezcCacheStackStorageConfiguration $conf,
         ezcCacheStackMetaData $metaData,
         $itemId,
-        $itemAttributes = array(),
+        $itemAttributes = [],
         $search = false
     );
 

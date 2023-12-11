@@ -34,38 +34,29 @@
 class ezcCacheMemoryVarStruct extends ezcBaseStruct
 {
 	/**
-     * Holds the cache key.
-     *
-	 * @var string
-	 */
-	public $key;
-
-	/**
-     * Holds the data associated with the key.
-     *
-	 * @var mixed
-	 */
-	public $var;
-
-	/**
-     * Holds the TTL value of the cache.
-     *
-	 * @var int
-	 */
-	public $ttl;
-
-    /**
      * Constructs a new ezcCacheMemoryVarStruct object.
      *
-	 * @param string $key
-	 * @param mixed $var
-	 * @param int $ttl
+     * @param string $key
+     * @param int $ttl
      */
-    public function __construct( $key, $var, $ttl )
+    public function __construct(
+        /**
+         * Holds the cache key.
+         *
+         */
+        public $key,
+        /**
+         * Holds the data associated with the key.
+         *
+         */
+        public mixed $var,
+        /**
+         * Holds the TTL value of the cache.
+         *
+         */
+        public $ttl
+    )
     {
-		$this->key = $key;
-		$this->var = $var;
-		$this->ttl = $ttl;
     }
 }
 ?>

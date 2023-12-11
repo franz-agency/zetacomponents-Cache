@@ -48,12 +48,12 @@ abstract class ezcCacheStorageApc extends ezcCacheStorageMemory
     /**
      * The backend name.
      */
-    const BACKEND_NAME = "Apc";
+    final public const BACKEND_NAME = "Apc";
 
     /**
      * The registry name.
      */
-    const REGISTRY_NAME = 'ezcCacheStorageApc_Registry';
+    final public const REGISTRY_NAME = 'ezcCacheStorageApc_Registry';
 
     /**
      * Creates a new cache storage in the given location.
@@ -69,9 +69,9 @@ abstract class ezcCacheStorageApc extends ezcCacheStorageMemory
      * @param string $location Path to the cache location
      * @param array(string=>string) $options Options for the cache
      */
-    public function __construct( $location = null, array $options = array() )
+    public function __construct( $location = null, array $options = [] )
     {
-        parent::__construct( $location, array() );
+        parent::__construct( $location, [] );
 
         // Overwrite parent set options with new ezcCacheStorageApcOptions
         $this->properties['options'] = new ezcCacheStorageApcOptions( $options );
@@ -99,7 +99,7 @@ abstract class ezcCacheStorageApc extends ezcCacheStorageMemory
      * @param mixed $data Simple type or array
      * @return mixed Prepared data
      */
-    abstract protected function prepareData( $data );
+    abstract protected function prepareData( mixed $data );
     
     /**
      * Property write access.

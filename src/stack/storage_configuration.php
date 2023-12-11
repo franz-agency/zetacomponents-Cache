@@ -55,12 +55,7 @@ class ezcCacheStackStorageConfiguration
      * 
      * @var array(string=>mixed)
      */
-    protected $properties = array(
-        'id'        => null,
-        'storage'   => null,
-        'itemLimit' => null,
-        'freeRate'  => null,
-    );
+    protected $properties = ['id'        => null, 'storage'   => null, 'itemLimit' => null, 'freeRate'  => null];
 
     /**
      * Creates a new storage configuration.
@@ -72,11 +67,10 @@ class ezcCacheStackStorageConfiguration
      *
      * Note that the properties can only be set once, using this constructore,
      * and are not changeable via property access.
-     * 
-     * @param string $id 
-     * @param ezcCacheStackableStorage $storage 
-     * @param int $itemLimit 
-     * @param float $freeRate 
+     *
+     * @param string $id
+     * @param int $itemLimit
+     * @param float $freeRate
      *
      * @throws ezcBaseValueException
      *         if a given value does not conform to the indicated format.
@@ -137,12 +131,11 @@ class ezcCacheStackStorageConfiguration
 
     /**
      * Sets a property.
-     * 
-     * @param string $propertyName 
-     * @param mixed $propertyValue 
+     *
+     * @param string $propertyName
      * @ignore
      */
-    public function __set( $propertyName, $propertyValue )
+    public function __set( $propertyName, mixed $propertyValue )
     {
         if ( $this->__isset( $propertyName ) )
         {

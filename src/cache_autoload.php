@@ -25,7 +25,7 @@
  * @package Cache
  */
 
-return array(
+return [
     'ezcCacheException'                      => 'Cache/exceptions/exception.php',
     'ezcCacheApcException'                   => 'Cache/exceptions/apc_exception.php',
     'ezcCacheInvalidDataException'           => 'Cache/exceptions/invalid_data.php',
@@ -77,5 +77,5 @@ return array(
     'ezcCacheStorageMemoryDataStruct'        => 'Cache/structs/memory_data.php',
     'ezcCacheStorageMemoryRegisterStruct'    => 'Cache/structs/memory_register.php',
     'ezcCacheStorageOptions'                 => 'Cache/options/storage.php',
-);
+];
 ?>

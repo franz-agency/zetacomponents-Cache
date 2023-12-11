@@ -38,19 +38,11 @@ class ezcCacheStackStorageUsedTwiceException extends ezcCacheException
      *
      * The $storage is the object that is used twice in the {@link
      * ezcCacheStack}.
-     * 
-     * @param ezcCacheStackableStorage $storage
+     *
      * @return void
      */
-    function __construct( ezcCacheStackableStorage $storage )
+    function __construct(ezcCacheStackableStorage $storage)
     {
-        parent::__construct(
-            "The storage of type '"
-            . get_class( $storage ) 
-            . "' with location '"
-            . $storage->location 
-            . "' is already used in the stack."
-        );
     }
 }
 ?>

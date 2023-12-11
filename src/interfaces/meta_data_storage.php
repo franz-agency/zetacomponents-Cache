@@ -61,8 +61,7 @@ interface ezcCacheStackMetaDataStorage
      * accedental user manipulation. The class of $metaData must be stored in
      * addition, to reconstruct the correct {@link ezcCacheStackMetaData}
      * implementing class on {@link restoreMetaData}.
-     * 
-     * @param ezcCacheStackMetaData $metaData 
+     *
      */
     public function storeMetaData( ezcCacheStackMetaData $metaData );
 

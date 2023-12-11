@@ -86,7 +86,7 @@ class ezcCacheStackOptions extends ezcBaseOptions
      *         If the value for a property is out of range.
      * @param array(string=>mixed) $options The initial options to set.
      */
-    public function __construct( array $options = array() )
+    public function __construct( array $options = [] )
     {
         $this->properties['configurator']        = null;
         $this->properties['metaStorage']         = null;
@@ -110,7 +110,7 @@ class ezcCacheStackOptions extends ezcBaseOptions
      * @throws ezcBasePropertyPermissionException
      *         if the property to be set is a read-only property.
      */
-    public function __set( $propertyName, $propertyValue )
+    public function __set( $propertyName, mixed $propertyValue )
     {
         switch ( $propertyName )
         {

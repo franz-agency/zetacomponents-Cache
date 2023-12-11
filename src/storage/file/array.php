@@ -90,7 +90,7 @@ class ezcCacheStorageFileArray extends ezcCacheStorageFile
     {
         if ( is_object( $data ) || is_resource( $data ) ) 
         {
-            throw new ezcCacheInvalidDataException( gettype( $data ), array( 'simple', 'array' ) );
+            throw new ezcCacheInvalidDataException( gettype( $data ), ['simple', 'array'] );
         }
         return "<?php\nreturn " . var_export( $data, true ) . ";\n?>\n";
     }

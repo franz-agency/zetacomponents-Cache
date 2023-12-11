@@ -39,11 +39,8 @@ class ezcCacheStackIdAlreadyUsedException extends ezcCacheException
      * @param string $id The ID that is already in use.
      * @return void
      */
-    function __construct( $id )
+    function __construct($id)
     {
-        parent::__construct(
-            "The ID '$id' is already used in the stack."
-        );
     }
 }
 ?>

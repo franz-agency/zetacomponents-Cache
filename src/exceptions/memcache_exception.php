@@ -37,7 +37,7 @@ class ezcCacheMemcacheException extends ezcBaseException
      * 
      * @param mixed $message The message to throw
      */
-    public function __construct( $message )
+    public function __construct( mixed $message )
     {
         parent::__construct( $message );
     }

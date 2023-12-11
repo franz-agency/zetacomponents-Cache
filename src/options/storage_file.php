@@ -72,7 +72,7 @@ class ezcCacheStorageFileOptions extends ezcBaseOptions
      * @throws ezcBaseValueException
      *         If the value for the property is incorrect
      */
-    public function __construct( $options = array() )
+    public function __construct( $options = [] )
     {
         $this->properties['permissions']  = 0644;
         $this->properties['lockFile']     = '.ezcLock';
@@ -92,7 +92,7 @@ class ezcCacheStorageFileOptions extends ezcBaseOptions
      * @param mixed $value The option value.
      * @ignore
      */
-    public function __set( $key, $value )
+    public function __set( $key, mixed $value )
     {
         switch ( $key )
         {
@@ -162,12 +162,8 @@ class ezcCacheStorageFileOptions extends ezcBaseOptions
      */
     public function __get( $key )
     {
-        if ( isset( $this->properties[$key] ) )
-        {
-            return $this->properties[$key];
-        }
         // Delegate
-        return $this->storageOptions->$key;
+        return $this->properties[$key] ?? $this->storageOptions->$key;
     }
 
     /**

@@ -34,13 +34,6 @@
 class ezcCacheStorageMemoryDataStruct extends ezcBaseStruct
 {
     /**
-     * Holds the actual data.
-     *
-     * @var mixed
-     */
-    public $data;
-
-    /**
      * Holds the time the data was introduced in the cache.
      *
      * @var string
@@ -48,22 +41,20 @@ class ezcCacheStorageMemoryDataStruct extends ezcBaseStruct
     public $time;
 
     /**
-     * Holds the location of the cache.
-     *
-     * @var string
-     */
-    public $location;
-
-    /**
      * Constructs a new ezcCacheMemoryDataStruct.
      *
-     * @param mixed $data
      * @param string $location
      */
-    public function __construct( $data, $location )
+    public function __construct( /**
+     * Holds the actual data.
+     *
+     */
+    public mixed $data, /**
+     * Holds the location of the cache.
+     *
+     */
+    public $location )
     {
-        $this->data = $data;
-        $this->location = $location;
         $this->time = time();
     }
 }

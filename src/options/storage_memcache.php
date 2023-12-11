@@ -71,7 +71,7 @@ class ezcCacheStorageMemcacheOptions extends ezcBaseOptions
      *         If $options contains a property with a value not allowed.
      * @param array(string=>mixed) $options
      */
-    public function __construct( array $options = array() )
+    public function __construct( array $options = [] )
     {
         $this->properties['host']         = 'localhost';
         $this->properties['port']         = 11211;
@@ -94,10 +94,9 @@ class ezcCacheStorageMemcacheOptions extends ezcBaseOptions
      * @throws ezcBaseValueException
      *         If $value is not correct for the property $name.
      * @param string $name
-     * @param mixed $value
      * @ignore
      */
-    public function __set( $name, $value )
+    public function __set( $name, mixed $value )
     {
         switch ( $name )
         {
@@ -152,13 +151,8 @@ class ezcCacheStorageMemcacheOptions extends ezcBaseOptions
      */
     public function __get( $name )
     {
-        if ( isset( $this->properties[$name] ) )
-        {
-            return $this->properties[$name];
-        }
-
         // Delegate
-        return $this->storageOptions->$name;
+        return $this->properties[$name] ?? $this->storageOptions->$name;
     }
 
     /**

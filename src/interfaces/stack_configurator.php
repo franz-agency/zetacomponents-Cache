@@ -53,8 +53,7 @@ interface ezcCacheStackConfigurator
      *
      * This method is expected to use the {@link ezcCacheStack->pushStorage()}
      * method to configure storages in the stack.
-     * 
-     * @param ezcCacheStack $stack 
+     *
      * @return void
      */
     public static function configure( ezcCacheStack $stack );

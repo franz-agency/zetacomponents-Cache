@@ -81,7 +81,7 @@ class ezcCacheStackLruReplacementStrategy extends ezcCacheStackBaseReplacementSt
         ezcCacheStackMetaData $metaData,
         $itemId,
         $itemData,
-        $itemAttributes = array()
+        $itemAttributes = []
     )
     {
         self::checkMetaData( $metaData );
@@ -119,7 +119,7 @@ class ezcCacheStackLruReplacementStrategy extends ezcCacheStackBaseReplacementSt
         ezcCacheStackStorageConfiguration $conf,
         ezcCacheStackMetaData $metaData,
         $itemId,
-        $itemAttributes = array(),
+        $itemAttributes = [],
         $search = false
     )
     {
@@ -153,7 +153,7 @@ class ezcCacheStackLruReplacementStrategy extends ezcCacheStackBaseReplacementSt
         ezcCacheStackStorageConfiguration $conf,
         ezcCacheStackMetaData $metaData,
         $itemId,
-        $itemAttributes = array(),
+        $itemAttributes = [],
         $search = false
     )
     {
@@ -177,8 +177,7 @@ class ezcCacheStackLruReplacementStrategy extends ezcCacheStackBaseReplacementSt
      * Checks if the given meta data is processable.
      *
      * Throws an exception if the given meta data is not processable.
-     * 
-     * @param ezcCacheStackMetaData $metaData 
+     *
      *
      * @throws ezcCacheInvalidMetaDataException
      *         if the given $metaData is not an instance of {@link

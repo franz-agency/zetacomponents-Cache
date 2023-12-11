@@ -34,13 +34,6 @@
 class ezcCacheStorageFileApcArrayDataStruct extends ezcBaseStruct
 {
     /**
-     * Holds the actual data.
-     *
-     * @var mixed
-     */
-    public $data;
-
-    /**
      * Holds the time the data was introduced in the cache.
      *
      * @var int
@@ -48,40 +41,30 @@ class ezcCacheStorageFileApcArrayDataStruct extends ezcBaseStruct
     public $time;
 
     /**
-     * Holds the location of the cache.
-     *
-     * @var string
-     */
-    public $location;
-
-    /**
-     * Holds the modified time of the file.
-     *
-     * @var int|bool
-     */
-    public $mtime;
-
-    /**
-     * Holds the accessed time of the file.
-     *
-     * @var int|bool
-     */
-    public $atime;
-
-    /**
      * Constructs a new ezcCacheStorageFileApcArrayDataStruct.
      *
-     * @param mixed $data
      * @param string $location
      * @param int|bool $mtime
      * @param int|bool $atime
      */
-    public function __construct( $data, $location, $mtime = false, $atime = false )
+    public function __construct( /**
+     * Holds the actual data.
+     *
+     */
+    public mixed $data, /**
+     * Holds the location of the cache.
+     *
+     */
+    public $location, /**
+     * Holds the modified time of the file.
+     *
+     */
+    public $mtime = false, /**
+     * Holds the accessed time of the file.
+     *
+     */
+    public $atime = false )
     {
-        $this->data = $data;
-        $this->location = $location;
-        $this->mtime = $mtime;
-        $this->atime = $atime;
         $this->time = time();
     }
 }

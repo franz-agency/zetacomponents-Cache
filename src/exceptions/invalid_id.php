@@ -41,9 +41,8 @@ class ezcCacheInvalidIdException extends ezcCacheException
      * @param string $id The invalid ID.
      * @return void
      */
-    function __construct( $id )
+    function __construct($id)
     {
-        parent::__construct( "No cache or cache configuration known with ID '{$id}'." );
     }
 }
 ?>

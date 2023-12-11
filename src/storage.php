@@ -115,9 +115,9 @@ abstract class ezcCacheStorage
      *         options depend on the ezcCacheStorage implementation and may
      *         vary.
      */
-    public function __construct( $location, $options = array() )
+    public function __construct( $location, $options = [] )
     {
-        $this->properties['location'] = ( substr( $location, -1 ) === '/' ) ? $location : $location . '/';
+        $this->properties['location'] = ( str_ends_with($location, '/') ) ? $location : $location . '/';
         $this->validateLocation();
         $this->properties['options'] = new ezcCacheStorageOptions( $options );
     }
@@ -165,7 +165,7 @@ abstract class ezcCacheStorage
      *         of {@link ezcCacheStorage}. Most implementations can not
      *         handle objects and resources.
      */
-    abstract public function store( $id, $data, $attributes = array() );
+    abstract public function store( $id, mixed $data, $attributes = [] );
 
     /**
      * Restore data from the cache.
@@ -198,7 +198,7 @@ abstract class ezcCacheStorage
      *         has been corrupted by external influences (file permission
      *         change).
      */
-    abstract public function restore( $id, $attributes = array(), $search = false );
+    abstract public function restore( $id, $attributes = [], $search = false );
 
     /**
      * Delete data from the cache.
@@ -225,7 +225,7 @@ abstract class ezcCacheStorage
      *         has been corrupted by external influences (file permission
      *         change).
      */
-    abstract public function delete( $id = null, $attributes = array(), $search = false );
+    abstract public function delete( $id = null, $attributes = [], $search = false );
 
     /**
     * Return the number of items in the cache matching a certain criteria.
@@ -236,7 +236,7 @@ abstract class ezcCacheStorage
     * @param array(string=>string) $attributes Attributes that describe the item
     * @return int The number of cache data items found matching the criteria
     */
-    abstract public function countDataItems( $id = null, $attributes = array() );
+    abstract public function countDataItems( $id = null, $attributes = [] );
 
     /**
      * Returns the time ( in seconds ) that remains for a cache object,
@@ -248,7 +248,7 @@ abstract class ezcCacheStorage
      * @access public
      * @return int The remaining lifetime ( 0 if nonexists or outdated ).
      */
-    abstract public function getRemainingLifetime( $id, $attributes = array() );
+    abstract public function getRemainingLifetime( $id, $attributes = [] );
 
     /**
      * Checks if the location property is valid.
@@ -365,7 +365,7 @@ abstract class ezcCacheStorage
      *         ezcCacheStorageOptions.
      * @ignore
      */
-    public function __set( $propertyName, $val )
+    public function __set( $propertyName, mixed $val )
     {
         switch ( $propertyName )
         {

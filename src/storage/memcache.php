@@ -46,12 +46,12 @@ abstract class ezcCacheStorageMemcache extends ezcCacheStorageMemory
     /**
      * The backend name.
      */
-    const BACKEND_NAME = "Memcache";
+    final public const BACKEND_NAME = "Memcache";
 
     /**
      * The registry name.
      */
-    const REGISTRY_NAME = 'ezcCacheStorageMemcache_Registry';
+    final public const REGISTRY_NAME = 'ezcCacheStorageMemcache_Registry';
 
     /**
      * Creates a new cache storage in the given location.
@@ -67,20 +67,14 @@ abstract class ezcCacheStorageMemcache extends ezcCacheStorageMemory
      * @param string $location Path to the cache location
      * @param array(string=>string) $options Options for the cache
      */
-    public function __construct( $location = null, array $options = array() )
+    public function __construct( $location = null, array $options = [] )
     {
-        parent::__construct( $location, array() );
+        parent::__construct( $location, [] );
 
         // Overwrite parent set options with new ezcCacheMemcacheStorageOptions
         $this->properties['options'] = new ezcCacheStorageMemcacheOptions( $options );
 
-        $this->backend = new ezcCacheMemcacheBackend( array(
-            'host' => $this->properties['options']->host,
-            'port' => $this->properties['options']->port,
-            'ttl' => $this->properties['options']->ttl,
-            'persistent' => $this->properties['options']->persistent,
-            'compressed' => $this->properties['options']->compressed,
-        ) );
+        $this->backend = new ezcCacheMemcacheBackend( ['host' => $this->properties['options']->host, 'port' => $this->properties['options']->port, 'ttl' => $this->properties['options']->ttl, 'persistent' => $this->properties['options']->persistent, 'compressed' => $this->properties['options']->compressed] );
 
         $this->registryName = self::REGISTRY_NAME;
         $this->backendName = self::BACKEND_NAME;
@@ -104,7 +98,7 @@ abstract class ezcCacheStorageMemcache extends ezcCacheStorageMemory
      * @param mixed $data Simple type or array
      * @return mixed Prepared data
      */
-    abstract protected function prepareData( $data );
+    abstract protected function prepareData( mixed $data );
     
     /**
      * Property write access.

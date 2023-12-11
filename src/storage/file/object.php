@@ -90,7 +90,7 @@ class ezcCacheStorageFileObject extends ezcCacheStorageFile
         if ( ( is_object( $data ) && !( $data instanceof ezcBaseExportable ) )
              || is_resource( $data ) )
         {
-            throw new ezcCacheInvalidDataException( gettype( $data ), array( 'simple', 'array', 'ezcBaseExportable' ) );
+            throw new ezcCacheInvalidDataException( gettype( $data ), ['simple', 'array', 'ezcBaseExportable'] );
         }
         return "<?php\nreturn " . var_export( $data, true ) . ";\n?>\n";
     }

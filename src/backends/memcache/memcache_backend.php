@@ -42,12 +42,12 @@ class ezcCacheMemcacheBackend extends ezcCacheMemoryBackend
      *
      * Nearly 1MB (48,576B less).
      */
-    const COMPRESS_THRESHOLD = 1000000;
+    final public const COMPRESS_THRESHOLD = 1_000_000;
 
     /**
      * Maximum length of a cache key for Memcached. 
      */
-    const MAX_KEY_LENGTH = 249;
+    final public const MAX_KEY_LENGTH = 249;
 
     /**
      * Holds an instance to a Memcache object.
@@ -68,7 +68,7 @@ class ezcCacheMemcacheBackend extends ezcCacheMemoryBackend
      *
      * @var array(string=>Memcache)
      */
-    protected static $connections = array();
+    protected static $connections = [];
 
     /**
      * Keeps track of the number of backends using the same connection.
@@ -78,7 +78,7 @@ class ezcCacheMemcacheBackend extends ezcCacheMemoryBackend
      *
      * @var array(string=>int)
      */
-    protected static $connectionCounter = array();
+    protected static $connectionCounter = [];
 
     /**
      * Stores the connection identifier. 
@@ -101,7 +101,7 @@ class ezcCacheMemcacheBackend extends ezcCacheMemoryBackend
      *
      * @param array(string=>mixed) $options
      */
-    public function __construct( array $options = array() )
+    public function __construct( array $options = [] )
     {
         if ( !ezcBaseFeatures::hasExtensionSupport( 'memcache' ) )
         {
@@ -187,7 +187,7 @@ class ezcCacheMemcacheBackend extends ezcCacheMemoryBackend
      */
     public function fetch( $key )
     {
-        if ( strlen( $key ) > self::MAX_KEY_LENGTH )
+        if ( strlen( (string) $key ) > self::MAX_KEY_LENGTH )
         {
             throw new ezcCacheInvalidKeyException( $key, 'Length > ' . self::MAX_KEY_LENGTH . '.' );
         }

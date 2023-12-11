@@ -44,11 +44,8 @@ class ezcCacheInvalidKeyException extends ezcCacheException
      * @param string $key 
      * @param string $reason 
      */
-    public function __construct( $key, $reason = null )
+    public function __construct($key, $reason = null)
     {
-        parent::__construct(
-            "The cache key '$key' is invalid." . ( $reason !== null ? ' Reason: ' . $reason : '' )
-        );
     }
 }
 
